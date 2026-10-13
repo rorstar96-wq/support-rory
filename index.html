@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Support Rory</title>
+<meta name="description" content="Rory White survived a hemispherectomy at age 4 and now works as a counsellor helping others. If his story or his work has helped you, here's how to support him — PayID, PayPal or a coffee.">
+<style>
+  :root {
+    --paper: #faf6ef;
+    --ink: #26221c;
+    --muted: #6f675a;
+    --line: #e3dbcb;
+    --accent: #9a3b1e;   /* warm terracotta */
+    --accent-ink: #ffffff;
+    --card: #ffffff;
+    --mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 18px;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap { max-width: 660px; margin: 0 auto; padding: 0 24px; }
+
+  /* ---------- Masthead ---------- */
+  header {
+    padding: 96px 0 72px;
+    border-bottom: 1px solid var(--line);
+  }
+  .kicker {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 28px;
+  }
+  h1 {
+    font-size: clamp(38px, 7vw, 54px);
+    font-weight: 400;
+    line-height: 1.12;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+  .lede {
+    margin-top: 28px;
+    font-size: 21px;
+    color: var(--muted);
+    text-wrap: pretty;
+  }
+
+  /* ---------- Story sections ---------- */
+  section { padding: 64px 0; border-bottom: 1px solid var(--line); }
+  section:last-of-type { border-bottom: none; }
+
+  h2 {
+    font-size: 15px;
+    font-weight: 400;
+    font-family: var(--mono);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 24px;
+  }
+  p + p { margin-top: 20px; }
+  em.draft {
+    font-family: var(--mono);
+    font-style: normal;
+    font-size: 12px;
+    color: var(--muted);
+    background: #f1e9d8;
+    border: 1px dashed var(--line);
+    padding: 2px 8px;
+    border-radius: 3px;
+    white-space: nowrap;
+  }
+
+  blockquote {
+    margin: 32px 0;
+    padding-left: 24px;
+    border-left: 3px solid var(--accent);
+    font-style: italic;
+    color: var(--muted);
+  }
+
+  /* ---------- Donate card ---------- */
+  .donate-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 36px;
+    margin-top: 8px;
+    box-shadow: 0 1px 2px rgba(38,34,28,0.04);
+  }
+  .address-row {
+    display: flex;
+    gap: 12px;
+    align-items: stretch;
+    margin-top: 20px;
+  }
+  .address {
+    flex: 1;
+    font-family: var(--mono);
+    font-size: 13px;
+    background: #f6f1e7;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 14px 16px;
+    word-break: break-all;
+    line-height: 1.5;
+  }
+  .copy-btn {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--mono);
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent-ink);
+    background: var(--accent);
+    border: none;
+    border-radius: 6px;
+    padding: 0 20px;
+    cursor: pointer;
+    transition: background 0.15s ease;
+  }
+  .copy-btn:hover { background: #7f2f16; }
+  .copy-btn:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+  .copy-btn.copied { background: #2e6b3f; }
+
+  .qr-slot {
+    margin-top: 24px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .qr-box {
+    width: 148px;
+    height: 148px;
+    border: 1px dashed var(--line);
+    border-radius: 8px;
+    background:
+      repeating-conic-gradient(var(--line) 0% 25%, transparent 0% 50%)
+      0 0 / 16px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    padding: 12px;
+  }
+  .qr-note { flex: 1; min-width: 200px; font-size: 15px; color: var(--muted); }
+
+  .fine {
+    margin-top: 24px;
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* ---------- Donation methods ---------- */
+  .method { padding: 26px 0; border-top: 1px solid var(--line); }
+  .method:first-of-type { border-top: none; padding-top: 4px; }
+  .m-title {
+    display: block;
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: 0.01em;
+  }
+  .m-desc {
+    margin-top: 6px;
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+  .method-btn {
+    display: inline-block;
+    margin-top: 14px;
+    font-family: var(--mono);
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--accent-ink);
+    background: var(--accent);
+    border-radius: 6px;
+    padding: 12px 22px;
+    transition: background 0.15s ease;
+  }
+  .method-btn:hover { background: #7f2f16; }
+  .method-btn:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+
+  /* ---------- What support does ---------- */
+  .uses {
+    margin-top: 28px;
+    display: grid;
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .use {
+    background: var(--card);
+    padding: 22px 28px;
+    display: grid;
+    grid-template-columns: 36px 1fr;
+    gap: 16px;
+    align-items: baseline;
+  }
+  .use .glyph { font-family: var(--mono); color: var(--accent); font-size: 15px; }
+  .use .label { font-weight: 700; font-family: Georgia, serif; }
+  .use p { font-size: 15px; color: var(--muted); margin-top: 4px; line-height: 1.6; }
+
+  /* ---------- Footer ---------- */
+  footer {
+    padding: 56px 0 96px;
+    color: var(--muted);
+    font-size: 14px;
+    text-align: center;
+  }
+  footer .heart { color: var(--accent); }
+
+  @media (max-width: 520px) {
+    .address-row { flex-direction: column; }
+    .copy-btn { padding: 14px 20px; justify-content: center; }
+    .donate-card { padding: 26px 20px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <p class="kicker">Support Rory White</p>
+    <h1>Half a brain, whole lot of fight.</h1>
+    <p class="lede">I survived something at age four that most people don't survive. Now I spend my days helping other people carry what life hands them. If my story or my work has meant something to you, this page is how you can throw something back.</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <h2>The story</h2>
+    <p>At four years old, I caught Rasmussen's encephalitis — a rare condition that was destroying one half of my brain. The only way to stop it was to take that half out. I had a hemispherectomy: I've lived my whole life with half a brain, a weaker right side, and half a field of vision.</p>
+    <p>In 2017, a brain shunt and a near-fatal MRSA infection added chronic nerve pain to the list. My baseline is a six out of ten, every day, and it gets worse as the day goes on.</p>
+    <p>I'm not telling you this for sympathy. I'm telling you because it's the price of admission, and I've never once let it stop me from showing up. I trained as a counsellor and coach. I sit with people on the worst days of their lives — and because of what I've carried, they don't have to explain pain to me. <em class="draft">[EDIT: your words here]</em></p>
+    <blockquote>“What happened to me at four rewired how I see everything. You learn quickly what actually matters.” <em class="draft">[EDIT]</em></blockquote>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Where I am now</h2>
+    <p>Right now I'm job seeking — building a counselling and coaching practice that can work <em>with</em> my body rather than against it. Chronic pain doesn't do nine-to-five, so I'm building something sustainable: private clients, group work, and tools that help people like me. <em class="draft">[EDIT: tailor to your current reality]</em></p>
+    <p>Every donation goes toward keeping that build alive while the income catches up.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>What your support does</h2>
+    <div class="uses">
+      <div class="use">
+        <span class="glyph">01</span>
+        <div>
+          <span class="label">Keeps the lights on</span>
+          <p>Living costs while I get the practice off the ground — the boring, real stuff.</p>
+        </div>
+      </div>
+      <div class="use">
+        <span class="glyph">02</span>
+        <div>
+          <span class="label">Funds the build</span>
+          <p>Tools, registration, materials, and the tech that lets me reach clients despite the pain and vision limits.</p>
+        </div>
+      </div>
+      <div class="use">
+        <span class="glyph">03</span>
+        <div>
+          <span class="label">Secures the future</span>
+          <p>Anything beyond what I need gets invested — long-term security for a body that won't always make this easy.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="donate">
+  <div class="wrap">
+    <h2>How to support</h2>
+    <div class="donate-card">
+      <div class="method">
+        <span class="m-title">PayID <em class="draft" style="font-weight:400">[tap-to-pay from any Aussie bank app]</em></span>
+        <span class="m-desc">The easiest option for anyone in Australia. Open your banking app, choose "PayID", enter my details below, done — instant, no fees. <em class="draft">[ADD: your PayID — e.g. your email or phone number]</em></span>
+      </div>
+      <div class="method">
+        <span class="m-title">PayPal <em class="draft" style="font-weight:400">[card accepted worldwide]</em></span>
+        <span class="m-desc">Works from any country with a card. Note: PayPal takes a small cut of each donation (around 3%). <em class="draft">[ADD: paypal.me/yourname]</em></span>
+        <a class="method-btn" href="#">Donate via PayPal</a>
+      </div>
+      <div class="method">
+        <span class="m-title">Ko-fi <em class="draft" style="font-weight:400">[buy me a coffee, $5 at a time]</em></span>
+        <span class="m-desc">A friendlier, lower-pressure option — people can send a coffee-sized tip without feeling like they have to give big. Ko-fi takes 0% on donations. <em class="draft">[ADD: ko-fi.com/yourname]</em></span>
+        <a class="method-btn" href="#">Buy me a coffee</a>
+      </div>
+      <p class="fine">One-time only, no subscriptions, no strings. Every donation is a personal gift — I don't need anything back except, if you want, a message so I know who to thank. <em class="draft">[ADD CONTACT]</em></p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Even if you can't donate</h2>
+    <p>Honestly — sharing this page with one person who'd care about the story does as much as a donation. And if you're someone carrying pain, disability, or a brain that works differently: you can do this too. I'm proof, and I'm in your corner.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>Made with <span class="heart">♥</span> in Pymble, NSW, Australia — with help from an AI that refused to let me talk myself out of making this page.</p>
+    <p style="margin-top: 8px;">Questions? Reach me at <em class="draft">[ADD CONTACT]</em></p>
+  </div>
+</footer>
+
+<script>
+  // Wire up the three donation buttons once real links exist.
+  // Until then clicking them scrolls to the note that says which details are pending.
+  document.querySelectorAll('.method-btn').forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      if (btn.getAttribute('href') === '#') {
+        e.preventDefault();
+        var fine = btn.closest('.donate-card').querySelector('.fine');
+        if (fine) {
+          fine.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          fine.style.outline = '2px solid var(--accent)';
+          setTimeout(function () { fine.style.outline = ''; }, 1600);
+        }
+      }
+    });
+  });
+</script>
+</body>
+</html>
