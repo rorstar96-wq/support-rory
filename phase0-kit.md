@@ -92,6 +92,6 @@ Hey — I built something today. It's a page telling my story properly for the f
 - [ ] LinkedIn Featured item added
 - [ ] LinkedIn headline updated (optional but recommended)
 - [ ] Email signature updated
-- [ ] Text sent to [wife's name]
+- [ ] Text sent to Rachel
 
 When all boxes are ticked, you're cleared for Phase 1 (the Reddit AMA) — the paste-ready post is in traffic-plan.md.
